@@ -677,3 +677,13 @@ body[data-page=about] .hero{min-height:100vh;min-height:100svh;display:flex;flex
 @media (prefers-reduced-motion:reduce){html.snap{scroll-snap-type:none}}
 
 .hero-en,.hero-ja{will-change:transform}
+
+/* ===== ABOUT 冒頭：画面の高さに合わせて文字の大きさを調整し、最後の行まで1画面に収める ===== */
+body[data-page=about] .hero{min-height:100vh;min-height:100svh;min-height:100dvh;padding:clamp(76px,13vh,120px) 0 clamp(40px,8vh,90px) clamp(24px,16vw,210px)}
+body[data-page=about] .hero .hero-en{font-size:clamp(40px,min(10vw,17vh),140px);line-height:1.05}
+body[data-page=about] .hero .hero-ja{font-size:clamp(13px,min(2.6vw,3.3vh),36px);line-height:1.9;margin-top:clamp(18px,4.5vh,56px)}
+@media (max-width:900px){
+  body[data-page=about] .hero{padding:clamp(70px,12vh,96px) 20px clamp(36px,7vh,64px)}
+  body[data-page=about] .hero .hero-en{font-size:clamp(40px,min(17vw,9.5vh),110px)}
+  body[data-page=about] .hero .hero-ja{font-size:clamp(13px,min(4.4vw,2.7vh),24px);line-height:1.95;margin-top:clamp(16px,3.5vh,32px)}
+}
