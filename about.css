@@ -764,3 +764,8 @@ body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px
 .joins li a p{margin-top:12px}
 @media (max-width:900px){.joins{gap:12px}.joins li a{min-height:0;padding:26px 22px 30px}}
 @media (max-width:900px){.joins li a{min-height:176px}}
+
+/* 名前の横の【仮】 */
+.kari{display:inline-block;margin-left:.4em;font-size:.5em;font-weight:500;letter-spacing:.06em;color:#b04a3a;vertical-align:.35em;white-space:nowrap}
+.stu .kari{font-size:11px;vertical-align:baseline;margin-left:.3em}
+.fac .kari{font-size:11px;vertical-align:baseline}
