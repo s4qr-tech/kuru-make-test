@@ -46,6 +46,16 @@
     var on=mark?mark.getBoundingClientRect().bottom<(hd.offsetHeight||70):window.scrollY>120;
     hd.classList.toggle('scrolled',on);
   }
+  // 下へ読み進めている間はヘッダーをしまい、上へ戻したときだけ出す（文字とかぶらない）
+  var lastY=window.scrollY;
+  function dir(){
+    var y=window.scrollY,open=b&&b.getAttribute('aria-expanded')==='true';
+    if(open||y<300){hd.classList.remove('hd-hide')}
+    else if(y>lastY+4){hd.classList.add('hd-hide')}
+    else if(y<lastY-4){hd.classList.remove('hd-hide')}
+    lastY=y;
+  }
+  addEventListener('scroll',dir,{passive:true});
   addEventListener('scroll',sc,{passive:true});sc();
   b.addEventListener('click',function(){
     var o=b.getAttribute('aria-expanded')==='true';
