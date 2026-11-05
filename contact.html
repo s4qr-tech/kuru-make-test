@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>CONTACT｜kuru.make</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Noto+Sans+JP:wght@400;500;700&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="about.css?v=6">
+</head>
+<body data-page="contact">
+
+<div class="chero" aria-hidden="true"></div>
+<section class="wrap">
+  <div class="info">
+    <dl>
+      <dt>団体名</dt><dd>NPO法人 kuru.make【設立準備中・正式名称は要確認】</dd>
+      <dt>代表</dt><dd>【仮】</dd>
+      <dt>所在地</dt><dd>【仮】</dd>
+      <dt>事業内容</dt><dd>和アートセラピーの実施（高齢者施設への訪問）／世代間交流／研究・普及啓発【仮】</dd>
+      <dt>連絡先</dt><dd>【仮】info@example.com</dd>
+    </dl>
+  </div>
+  <div class="map" role="img" aria-label="地図（仮）">MAP（地図は設立後に設置）</div>
+  <form class="form" onsubmit="event.preventDefault();this.querySelector('.fn').textContent='（試作のため送信されません）'">
+    <h2 class="lab">CONTACT</h2>
+    <label>お問い合わせの種類
+      <select><option>施設の方（訪問のご依頼）</option><option>学生・ボランティア</option><option>会員・寄付</option><option>取材・その他</option></select></label>
+    <label>お名前<input type="text" autocomplete="name"></label>
+    <label>メールアドレス<input type="email" autocomplete="email"></label>
+    <label>お問い合わせ内容<textarea></textarea></label>
+    <button type="submit">SEND</button>
+    <p class="fn">送信先は未接続（見た目のみ）</p>
+  </form>
+</section>
+<script src="site.js?v=2"></script>
+</body>
+</html>

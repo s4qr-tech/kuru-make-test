@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>kuru.make｜和アートセラピー</title>
+<meta name="description" content="kuru.make（試作・別案）トップページ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Noto+Sans+JP:wght@400;500;700&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="about.css?v=6">
+</head>
+<body data-page="top">
+
+<div class="intro" id="intro" aria-hidden="true"></div>
+
+<section class="top">
+  <div class="flow" id="flow" aria-hidden="true"></div>
+  <h1 class="top-mark">和アートセラピー</h1>
+  <p class="top-sub">ちぎって、貼って、世代のあいだに色をつくる。</p>
+  <ul class="kinds" aria-label="背景の写真について">
+    <li><b>WORK</b>施設の方と一緒につくった作品</li>
+    <li><b>BACKSTAGE</b>活動の背景</li>
+    <li><b>SCENE</b>活動の情景</li>
+  </ul>
+</section>
+
+<section class="blk">
+  <h2 class="lab">ABOUT</h2>
+  <p class="lead">kuru.make は、「和アートセラピー」――和紙をちぎって貼る時間――を通して、学生と高齢者、施設と地域をつなぐ法人です。上手さよりも「その人らしさ」を大切に、世代をこえた会話が生まれる場所をつくっています。</p>
+  <a class="more" href="about.html">READ MORE</a>
+</section>
+
+<section class="blk">
+  <h2 class="lab">ACTIVITY</h2>
+  <ul class="cards" data-render="activities" data-limit="3" style="margin-top:70px"></ul>
+  <a class="more" href="activity.html">VIEW ALL</a>
+</section>
+
+<section class="blk">
+  <h2 class="lab">NEWS</h2>
+  <ul class="rows" data-render="news" data-limit="3" style="margin-top:70px"></ul>
+  <a class="more" href="news.html">VIEW ALL</a>
+</section>
+
+<script src="site.js?v=2"></script>
+<script src="flow.js?v=1"></script>
+<script>
+// イントロ：文字がひとつずつ現れる（はじめの1回だけ。動きを減らす設定のときは出さない）
+(function(){
+  var el=document.getElementById('intro'),seen=false;
+  try{seen=sessionStorage.getItem('km-intro')==='1'}catch(e){}
+  if(seen||matchMedia('(prefers-reduced-motion:reduce)').matches){el.remove();return}
+  var s='ART OF CONNECTING';
+  el.innerHTML=s.split('').map(function(c,i){return '<span style="animation-delay:'+(i*0.06)+'s">'+(c===' '?'&nbsp;':c)+'</span>'}).join('');
+  setTimeout(function(){el.classList.add('done');try{sessionStorage.setItem('km-intro','1')}catch(e){}},2000);
+  setTimeout(function(){el.remove()},3000);
+})();
+</script>
+</body>
+</html>
