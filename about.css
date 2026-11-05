@@ -735,3 +735,19 @@ body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px
 @media (min-width:901px){
   .hd.scrolled .hd-logo{opacity:0;visibility:hidden;pointer-events:none;box-shadow:none}
 }
+
+/* ベン図：3つの円が重なる中心（kuru.make）を、ロゴの四季色でほんのり色づける */
+.venn .core{opacity:0;transition:opacity .9s;mix-blend-mode:multiply}
+.venn .core circle{opacity:.42}
+.venn .t4 .en{font-weight:700}
+
+/* ===== お問い合わせフォーム：入力した文字と下線の枠が、きれいにそろうように ===== */
+.form input[type=text],.form input[type=email],.form input[type=tel],.form input[type=number],.form select,.form textarea{
+  -webkit-appearance:none;appearance:none;border-radius:0;box-sizing:border-box;
+  padding:0;text-indent:0;font-size:15px;line-height:1.7;letter-spacing:.04em;color:var(--ink)}
+.form input[type=text],.form input[type=email],.form input[type=tel],.form input[type=number],.form select{height:54px;padding:0 2px;line-height:54px}
+.form select{padding-right:30px;cursor:pointer;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23111' stroke-width='1'/%3E%3C/svg%3E") no-repeat right 2px center/12px 8px}
+.form textarea{padding:15px 2px;min-height:170px}
+.form input:focus,.form select:focus,.form textarea:focus{outline:0;border-bottom-color:var(--ink);box-shadow:0 1px 0 var(--ink)}
+.form ::placeholder{color:#aaa}

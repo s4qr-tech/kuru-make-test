@@ -13,6 +13,7 @@
       ts[i].style.opacity=q>0.9?1:0;
     });
     if(ts[3])ts[3].style.opacity=p>0.92?1:0;
+    var core=document.querySelector('.core');if(core)core.style.opacity=p>0.92?1:0;
   }
   addEventListener('scroll',venn,{passive:true});addEventListener('resize',venn);venn();
 })();
