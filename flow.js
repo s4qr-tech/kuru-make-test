@@ -20,7 +20,8 @@ window.KM_FLOW = [
 (function(){
   var host=document.getElementById('flow'); if(!host) return;
   var items=window.KM_FLOW, PAL=[['#a9d6c9','#f2d9a0'],['#f4b8b0','#f7dfa8'],['#b9c8ea','#e6c5dc'],['#d8e6a8','#a9d6c9'],['#f7dfa8','#f4b8b0'],['#e6c5dc','#b9c8ea']];
-  var still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  // 背景の写真は、スマホでも自動で流れる（設定で動きを減らしている端末では、ゆっくりめに流す）
+  var calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
   var els=items.map(function(it,i){
     var d=document.createElement('figure'); d.className='fl fl-'+it.kind.toLowerCase();
     var inner = it.src
@@ -37,20 +38,16 @@ window.KM_FLOW = [
   function frame(now){
     var W=host.clientWidth,H=host.clientHeight,t=(now-t0)/1000;
     // スマホは画面が狭く、同じ割合だとほとんど動いて見えないので、速さを上げる
-    var speed=still?0:0.018*Math.max(1,Math.min(3,900/W));
+    var speed=(calm?0.011:0.018)*Math.max(1,Math.min(3,900/W));
     els.forEach(function(el,i){
       // 右上 → 左下へ斜めに流れる。各カードは等間隔にずらして配置
-      var p=((i/N)+t*speed+sy*(still?0.00018:0.00006))%1; if(p<0)p+=1;
+      var p=((i/N)+t*speed+sy*0.00006)%1; if(p<0)p+=1;
       var x=W*(1.15-1.5*p) , y=H*(-0.25+1.5*p) ;
       // 横方向にも少しばらけさせる
       x+= ((i*97)%11-5)*W*0.045;
       el.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px) rotate(var(--r)) scale(var(--s))';
     });
-    if(!still) requestAnimationFrame(frame);
+    requestAnimationFrame(frame);
   }
   frame(t0);
-  if(!still) requestAnimationFrame(frame);
-  // 「視差効果を減らす」設定のときは、自動では動かさず、スクロールに合わせて動かす
-  if(still) addEventListener('scroll',function(){frame(performance.now())},{passive:true});
-  addEventListener('resize',function(){frame(performance.now())});
 })();

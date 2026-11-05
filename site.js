@@ -4,11 +4,11 @@
 
   // ---- データ（仮）。新しいものを上に追加 ----
   KM.activities = [
-    {t:'ハロウィン和紙コラージュ', d:'2026.10', tag:'WORKSHOP', place:'大阪のデイサービス施設'},
-    {t:'秋の和紙ちぎり絵【仮】', d:'2026.11', tag:'WORKSHOP', place:'【仮・施設名】'},
+    {t:'ハロウィン和紙コラージュ', d:'2026.10', tag:'EVENT', place:'大阪のデイサービス施設'},
+    {t:'秋の和紙ちぎり絵【仮】', d:'2026.11', tag:'EVENT', place:'【仮・施設名】'},
     {t:'夏のうちわづくり【仮】', d:'2026.08', tag:'EVENT', place:'【仮・施設名】'},
     {t:'和アートセラピーの研究発表', d:'2026.03', tag:'RESEARCH', place:'国際教養学部（論文掲載 2026）'},
-    {t:'春の桜コラージュ【仮】', d:'2026.04', tag:'WORKSHOP', place:'【仮・施設名】'},
+    {t:'春の桜コラージュ【仮】', d:'2026.04', tag:'EVENT', place:'【仮・施設名】'},
     {t:'NPO法人設立の準備を開始', d:'2026.11', tag:'NPO', place:'kuru.make'}
   ];
   KM.news = [
@@ -23,19 +23,20 @@
 
   // ---- 共通パーツ ----
   var page = document.body.getAttribute('data-page') || '';
-  var nav = [['ACTIVITY','activity'],['ABOUT','about'],['MEMBERS','members'],['RESEARCH','research'],['SUPPORT','support'],['CONTACT','contact']];
-  var sub = [['REPORT','report'],['HISTORY','history'],['NEWS','news']];
-  function a(l,k,cls){return '<a href="'+k+'.html"'+(cls||page===k?' class="'+[cls,page===k?'is-on':''].join(' ').trim()+'"':'')+'>'+l+'</a>'}
+  var nav = [['RESEARCH','research.html'],['ABOUT','about.html'],['MEMBERS','members.html'],['SUPPORT','support.html'],['NEWS','news.html']];
+  var sub = [];
+  var more = [['HISTORY','history.html'],['CONTACT','support.html#contact']];
+  function a(l,k,cls){var key=k.replace('.html','');return '<a href="'+k+'"'+(cls||page===key?' class="'+[cls,page===key?'is-on':''].join(' ').trim()+'"':'')+'>'+l+'</a>'}
   var html =
     '<header class="hd" id="hd">'+
       '<a class="hd-logo" href="index.html" aria-label="kuru.make トップ"><img src="assets/mark.png" alt="" width="44" height="44"><span>kuru.make</span></a>'+
       '<nav class="hd-nav" aria-label="メイン">'+nav.map(function(n){return a(n[0],n[1])}).join('')+sub.map(function(n){return a(n[0],n[1],'sub')}).join('')+'</nav>'+
       '<button class="hd-burger" id="burger" aria-label="メニュー" aria-expanded="false"><i></i><i></i></button>'+
     '</header>'+
-    '<div class="drawer" id="drawer" hidden>'+nav.concat(sub).map(function(n){return '<a href="'+n[1]+'.html">'+n[0]+'</a>'}).join('')+'</div>';
+    '<div class="drawer" id="drawer" hidden>'+nav.concat(more).map(function(n){return '<a href="'+n[1]+'">'+n[0]+'</a>'}).join('')+'</div>';
   document.body.insertAdjacentHTML('afterbegin', html);
   document.body.insertAdjacentHTML('beforeend',
-    '<footer class="ft"><div class="fl2">'+nav.concat(sub).map(function(n){return '<a href="'+n[1]+'.html">'+n[0]+'</a>'}).join('')+'</div><p>Copyright© 2026 kuru.make. All rights reserved.　NPO法人 kuru.make【設立準備中】</p></footer>'+
+    '<footer class="ft"><div class="fl2">'+nav.concat(more).map(function(n){return '<a href="'+n[1]+'">'+n[0]+'</a>'}).join('')+'</div><p>Copyright© 2026 kuru.make. All rights reserved.　NPO法人 kuru.make【設立準備中】</p></footer>'+
     '<a class="totop" href="#" aria-label="ページの先頭へ"><svg viewBox="0 0 36 24" width="36" height="24"><path d="M0 12 L18 1 L36 12 M18 1 V24" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>');
 
   var hd=document.getElementById('hd'),b=document.getElementById('burger'),d=document.getElementById('drawer');
@@ -48,7 +49,7 @@
 
   // ---- 一覧の描画 ----
   function card(x,i){
-    return '<li class="card" data-tag="'+x.tag+'"><a href="activity.html">'+KM.ph(i)+
+    return '<li class="card" data-tag="'+x.tag+'"><a href="news.html#report">'+KM.ph(i)+
       '<p class="c-t">'+x.t+'</p><p class="c-m">'+x.d+'　'+x.place+'</p>'+
       '<p class="tags"><span>'+x.tag+'</span></p></a></li>';
   }
@@ -76,7 +77,7 @@
   var r=document.querySelector('[data-render="reports"]');
   if(r){
     r.innerHTML=KM.activities.slice(0,4).map(function(x,i){
-      return '<li class="rep"><a href="activity.html">'+KM.ph(i+2)+'<div><p class="c-m">'+x.d+'　'+x.tag+'</p><p class="c-t">'+x.t+'</p><p class="rep-x">活動の様子を、写真とあわせて紹介します。【仮・本文は差し替え】</p></div></a></li>';
+      return '<li class="rep"><a href="news.html#report">'+KM.ph(i+2)+'<div><p class="c-m">'+x.d+'　'+x.tag+'</p><p class="c-t">'+x.t+'</p><p class="rep-x">活動の様子を、写真とあわせて紹介します。【仮・本文は差し替え】</p></div></a></li>';
     }).join('');
   }
 

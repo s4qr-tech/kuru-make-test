@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Noto+Sans+JP:wght@400;500;700&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="about.css?v=12">
+<link rel="stylesheet" href="about.css?v=14">
 </head>
 <body data-page="history">
 
@@ -19,7 +19,7 @@
   <p class="lead" style="margin-top:70px;font-size:12px;color:var(--mute)">※ 活動内容・施設名はすべて仮置きです。実際の予定・実績に差し替えます（このページの MONTHS を書き換えます）。</p>
 </section>
 
-<script src="site.js?v=3"></script>
+<script src="site.js?v=4"></script>
 <script>
 // 月ごとの活動。ここを書き換えると、各時期の中身が更新されます
 var MONTHS=[
@@ -37,16 +37,17 @@ var MONTHS=[
   {m:3,t:'成果発表',tag:'発表',x:'成果を発表し、1年の活動をふり返ります。'}
 ];
 var PERIODS=[
-  {ja:'春',en:'SPRING',r:'4〜6月',ms:[4,5,6]},
-  {ja:'夏休み',en:'SUMMER BREAK',r:'7〜9月',ms:[7,8,9]},
-  {ja:'秋',en:'AUTUMN',r:'10〜11月',ms:[10,11]},
-  {ja:'冬',en:'WINTER',r:'12〜1月',ms:[12,1]},
-  {ja:'春休み',en:'SPRING BREAK',r:'2〜3月',ms:[2,3]}
+  {key:'spring',ja:'春',en:'SPRING',r:'4〜6月',ms:[4,5,6]},
+  {key:'summer',ja:'夏休み',en:'SUMMER BREAK',r:'7〜9月',ms:[7,8,9]},
+  {key:'autumn',ja:'秋',en:'AUTUMN',r:'10〜11月',ms:[10,11]},
+  {key:'winter',ja:'冬',en:'WINTER',r:'12〜1月',ms:[12,1]},
+  {key:'plum',ja:'春休み',en:'SPRING BREAK',r:'2〜3月',ms:[2,3]}
 ];
 var tabs=document.getElementById('ptabs'),list=document.getElementById('pmonths');
-tabs.innerHTML=PERIODS.map(function(p,i){return '<button role="tab" data-i="'+i+'">'+p.ja+'<small>'+p.en+'　'+p.r+'</small></button>'}).join('');
+tabs.innerHTML=PERIODS.map(function(p,i){return '<button role="tab" data-i="'+i+'" data-s="'+p.key+'">'+p.ja+'<small>'+p.en+'　'+p.r+'</small></button>'}).join('');
 function show(i){
   [].forEach.call(tabs.children,function(b,j){b.classList.toggle('is-on',i===j);b.setAttribute('aria-selected',i===j)});
+  list.setAttribute('data-s',PERIODS[i].key);
   list.innerHTML=PERIODS[i].ms.slice().reverse().map(function(m){return MONTHS.filter(function(d){return d.m===m})}).reduce(function(a,b){return a.concat(b)},[]).map(function(d){
     return '<li><span class="pm">'+d.m+'月</span><span class="pt">'+d.tag+'</span><div><strong>'+d.t+'</strong><p>'+d.x+'</p></div></li>';
   }).join('');

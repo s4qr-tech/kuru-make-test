@@ -8,16 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Noto+Sans+JP:wght@400;500;700&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="about.css?v=12">
+<link rel="stylesheet" href="about.css?v=14">
 </head>
 <body data-page="support">
 
-<section class="page-head"><h1>JOIN US</h1><p>手を動かす時間を、<br>いっしょに続けませんか。</p></section>
+<section class="page-head"><h1>SUPPORT</h1><p>手を動かす時間を、<br>いっしょに続けませんか。</p></section>
+<nav class="toc toc2" aria-label="ページ内の目次"><a href="#support"><b>01</b>SUPPORT<small>応援する</small></a><a href="#contact"><b>02</b>CONTACT<small>お問い合わせ・お申し込み</small></a></nav>
 <div class="strip" aria-hidden="true">
   <div class="ph" style="--a:#a9d6c9;--b:#f2d9a0"></div><div class="ph" style="--a:#f4b8b0;--b:#f7dfa8"></div><div class="ph" style="--a:#b9c8ea;--b:#e6c5dc"></div><div class="ph" style="--a:#d8e6a8;--b:#a9d6c9"></div><div class="ph" style="--a:#f7dfa8;--b:#f4b8b0"></div>
 </div>
-<section class="wrap" style="padding-top:110px">
-  <h2 class="lab">SUPPORT</h2>
+<section class="wrap" id="support" style="padding-top:110px">
+  <h2 class="lab">WAYS TO SUPPORT</h2>
   <p class="lead" style="margin-top:50px">活動は、会員のみなさまと寄付に支えられています。ご自身に合った関わり方をお選びください。<br>※ 金額・条件は【仮】です。法人設立後に確定します。</p>
     <p class="lead" style="margin-top:50px">※ 会員制度は、現在、内容を見直しています。確定するまでの間、関わり方の概要のみ掲載します。</p>
   <ul class="efx" style="grid-template-columns:repeat(3,1fr);max-width:1100px">
@@ -33,6 +34,58 @@
     <li><button class="acc-h" aria-expanded="false">施設の方・活動のご依頼<i></i></button><div class="acc-b"><div><p>高齢者施設・地域の団体からの訪問のご依頼をお待ちしています。お問い合わせフォームからご連絡ください。</p></div></div></li>
   </ul>
 </section>
-<script src="site.js?v=3"></script>
+<section class="wrap msec" id="contact">
+  <h2 class="lab">CONTACT</h2><p class="note">お問い合わせ・お申し込み（施設の方・学生の方・会員／寄付）</p>
+  <div class="info">
+    <dl>
+      <dt>団体名</dt><dd>NPO法人 kuru.make【設立準備中・正式名称は要確認】</dd>
+      <dt>代表理事</dt><dd>中村 将吾</dd>
+      <dt>所在地</dt><dd>【仮】〒113-0033 東京都文京区本郷2丁目3−14 第3教育棟1階<br>アントレプレナーサークル宛</dd>
+      <dt>事業内容</dt><dd>和アートセラピーの実施（高齢者施設への訪問）／世代間交流／研究・普及啓発【仮】</dd>
+      <dt>連絡先</dt><dd>【仮】<a href="mailto:info@kurumake.com" style="border-bottom:1px solid">info@kurumake.com</a></dd>
+    </dl>
+  </div>
+  <div class="map" role="img" aria-label="地図（仮）">MAP（地図は設立後に設置）</div>
+  <form class="form" onsubmit="event.preventDefault();this.querySelector('.fn').textContent='（試作のため送信されません）'">
+    <label>お問い合わせの種類
+      <select id="kind"><option value="facility">施設の方（受け入れ・訪問のご依頼）</option><option value="student">学生の方（活動への参加）</option><option value="support">会員・寄付・物品のご提供</option><option value="other">取材・その他</option></select></label>
+
+    <div class="fsec" data-k="facility">
+      <h3>施設情報</h3>
+      <label>施設名（必須）<input type="text" required></label>
+      <label>施設の種別<select><option>特別養護老人ホーム</option><option>介護老人保健施設</option><option>デイサービス</option><option>有料老人ホーム</option><option>その他</option></select></label>
+      <label>所在地（市区町村）<input type="text"></label>
+      <label>ご担当者名（必須）<input type="text" required></label>
+      <label>参加予定人数（目安）<input type="text" inputmode="numeric"></label>
+      <label>ご希望の時間帯</label>
+      <div class="chk"><label><input type="checkbox">平日午前</label><label><input type="checkbox">平日午後</label><label><input type="checkbox">土日</label></div>
+    </div>
+
+    <div class="fsec" data-k="student">
+      <h3>ご本人情報</h3>
+      <div class="row2"><label>お名前（必須）<input type="text" required></label><label>ふりがな<input type="text"></label></div>
+      <div class="row2"><label>大学・学部（必須）<input type="text" required></label>
+        <label>学年<select><option>1年</option><option>2年</option><option>3年</option><option>4年</option><option>大学院</option><option>その他</option></select></label></div>
+      <label>関わり方（複数選択可）</label>
+      <div class="chk"><label><input type="checkbox">施設訪問</label><label><input type="checkbox">企画・準備</label><label><input type="checkbox">デザイン・制作</label><label><input type="checkbox">研究・記録</label><label><input type="checkbox">広報</label></div>
+      <label>志望理由・自己紹介<textarea></textarea></label>
+      <label>仲間ページへの掲載（任意）</label>
+      <div class="chk"><label><input type="radio" name="disp"> イニシャルで掲載</label><label><input type="radio" name="disp"> お名前で掲載</label><label><input type="radio" name="disp" checked> 掲載しない</label><label><input type="checkbox"> アイコン写真も掲載を希望する</label></div>
+    </div>
+
+    <label>お名前<input type="text" autocomplete="name"></label>
+    <label>メールアドレス<input type="email" autocomplete="email"></label>
+    <label>お問い合わせ内容・ご質問<textarea></textarea></label>
+    <div class="priv"><b>個人情報の取り扱いについて</b><br>ご記入いただいた個人情報は、本活動に関するご連絡および日程調整の目的にのみ利用し、ご本人の同意なく第三者に提供することはありません。（文面は仮置きです。法人設立後に、正式な方針に差し替えます。）</div>
+    <label class="agree"><input type="checkbox"> 上記の個人情報の取り扱いに同意します</label>
+    <button type="submit">SEND</button>
+    <p class="fn">送信先は未接続（見た目のみ）</p>
+  </form>
+</section>
+<script>
+(function(){var k=document.getElementById("kind");function f(){[].forEach.call(document.querySelectorAll(".fsec"),function(e){e.classList.toggle("on",e.getAttribute("data-k")===k.value)})}
+var q=new URLSearchParams(location.search).get("t");if(q&&[].some.call(k.options,function(o){return o.value===q}))k.value=q;k.addEventListener("change",f);f();})();
+</script>
+<script src="site.js?v=4"></script>
 </body>
 </html>
