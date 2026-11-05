@@ -31,7 +31,7 @@ window.KM_FLOW = [
     d.innerHTML=inner+'<figcaption>'+it.cap+'</figcaption>';
     // 1枚ごとに、大きさ・傾き・速さ・横のずれを変える（想いがあふれるように、不ぞろいに）
     var R=function(k){var v=Math.sin((i+1)*127.1+k*311.7)*43758.5453;return v-Math.floor(v)};
-    d._k={ph:(i/items.length+(R(1)-.5)*0.04+1)%1, sp:0.9+R(2)*0.28, lane:(R(3)+R(8)+R(12))/3};
+    d._k={ph:(i/items.length+(R(1)-.5)*0.04+1)%1, sp:0.9+R(2)*0.28, lane:(R(3)+R(8)+R(12))/3, ang:(R(14)-.5)*0.36, wob:0.25+R(15)*0.35, wph:R(16)*6.28, r0:(R(6)-.5)*76, ra:5+R(17)*9};
     d.style.setProperty('--s',(0.65+R(5)*0.7).toFixed(2));
     d.style.setProperty('--r',((R(6)-.5)*56).toFixed(1)+'deg');
     d._o={s:0.8+((i*37)%5)*0.12, r:-22+((i*13)%7)*2};
@@ -89,9 +89,14 @@ window.KM_FLOW = [
     els.forEach(function(el,i){
       var k=el._k;
       var u=(k.ph+(t*base*k.sp+sy*0.25)/L)%1; if(u<0)u+=1;
-      var along=(u-0.5)*L, side=(k.lane-0.5)*lane+Math.sin(u*Math.PI*2+1.3)*Pn*0.012;   // ほぼ直線（ごくわずかにゆらぐ）
-      var x=W/2+DX*along+NX*side, y=H*0.64+DY*along+NY*side;
-      el.style.transform='translate('+(x-el.offsetWidth/2).toFixed(1)+'px,'+(y-el.offsetHeight/2).toFixed(1)+'px) rotate(var(--r)) scale(var(--s))';
+      var along=(u-0.5)*L, side=(k.lane-0.5)*lane+Math.sin(u*Math.PI*2+1.3)*Pn*0.012;
+      // 1枚ごとに進む向きを少しずらし、ゆっくり横にゆれ、傾きも変わる（自然に漂うように）
+      var ca=Math.cos(k.ang), sa=Math.sin(k.ang);
+      var ax=DX*ca-DY*sa, ay=DX*sa+DY*ca;
+      side+=Math.sin(t*k.wob+k.wph)*Pn*0.03;
+      var x=W/2+ax*along+NX*side, y=H*0.64+ay*along+NY*side;
+      var rot=k.r0+Math.sin(t*k.wob*0.8+k.wph)*k.ra;
+      el.style.transform='translate('+(x-el.offsetWidth/2).toFixed(1)+'px,'+(y-el.offsetHeight/2).toFixed(1)+'px) rotate('+rot.toFixed(1)+'deg) scale(var(--s))';
     });
     var Lc=Pd+240, lc=Pn*0.55+260;
     conf.forEach(function(e){
