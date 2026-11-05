@@ -23,8 +23,8 @@
 
   // ---- 共通パーツ ----
   var page = document.body.getAttribute('data-page') || '';
-  var nav = [['ACTIVITY','activity'],['ABOUT','about'],['SUPPORT','support'],['CONTACT','contact']];
-  var sub = [['REPORT','report'],['NEWS','news']];
+  var nav = [['ACTIVITY','activity'],['ABOUT','about'],['MEMBERS','members'],['RESEARCH','research'],['SUPPORT','support'],['CONTACT','contact']];
+  var sub = [['REPORT','report'],['HISTORY','history'],['NEWS','news']];
   function a(l,k,cls){return '<a href="'+k+'.html"'+(cls||page===k?' class="'+[cls,page===k?'is-on':''].join(' ').trim()+'"':'')+'>'+l+'</a>'}
   var html =
     '<header class="hd" id="hd">'+
@@ -35,7 +35,7 @@
     '<div class="drawer" id="drawer" hidden>'+nav.concat(sub).map(function(n){return '<a href="'+n[1]+'.html">'+n[0]+'</a>'}).join('')+'</div>';
   document.body.insertAdjacentHTML('afterbegin', html);
   document.body.insertAdjacentHTML('beforeend',
-    '<footer class="ft"><p>Copyright© 2026 kuru.make. All rights reserved.</p></footer>'+
+    '<footer class="ft"><div class="fl2">'+nav.concat(sub).map(function(n){return '<a href="'+n[1]+'.html">'+n[0]+'</a>'}).join('')+'</div><p>Copyright© 2026 kuru.make. All rights reserved.　NPO法人 kuru.make【設立準備中】</p></footer>'+
     '<a class="totop" href="#" aria-label="ページの先頭へ"><svg viewBox="0 0 36 24" width="36" height="24"><path d="M0 12 L18 1 L36 12 M18 1 V24" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>');
 
   var hd=document.getElementById('hd'),b=document.getElementById('burger'),d=document.getElementById('drawer');
