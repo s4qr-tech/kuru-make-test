@@ -8,53 +8,70 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Noto+Sans+JP:wght@400;500;700&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="about.css?v=23">
+<link rel="stylesheet" href="about.css?v=31">
 </head>
 <body data-page="history">
 
-<section class="page-head"><h1>HISTORY</h1><p>活動のあゆみ。<br>1年を、季節と長期休みの5つに分けて。</p></section>
-<section class="wrap">
-  <div class="ptabs" id="ptabs" role="tablist"></div>
-  <ul class="pmonths" id="pmonths" aria-live="polite"></ul>
-  <p class="lead" style="margin-top:70px;font-size:12px;color:var(--mute)">※ 活動内容・施設名はすべて仮置きです。実際の予定・実績に差し替えます（このページの MONTHS を書き換えます）。</p>
+<section class="page-head"><h1>HISTORY</h1><p>活動のあゆみ（沿革）。<br>年度のボタンを押すと、その年度の歩みが見られます。</p></section>
+
+<section class="wrap hist">
+  <div class="ybtns" id="ybtns" role="tablist" aria-label="年度"></div>
+  <p class="ysum" id="ysum"></p>
+  <ul class="legend" aria-label="季節の色">
+    <li data-s="spring">春 4〜6月</li><li data-s="summer">夏休み 7〜9月</li><li data-s="autumn">秋 10〜11月</li><li data-s="winter">冬 12〜1月</li><li data-s="plum">春休み 2〜3月</li>
+  </ul>
+  <ol class="ytl" id="ytl" aria-live="polite"></ol>
+  <p class="lead" style="margin-top:70px;font-size:12px;color:var(--mute)">※ 内容・日付・施設名は仮置きです。年度が進むたびに、下の HISTORY データへ1年度ぶんを足すと、ボタンが増えます。</p>
 </section>
 
-<script src="site.js?v=5"></script>
+<script src="site.js?v=9"></script>
 <script>
-// 月ごとの活動。ここを書き換えると、各時期の中身が更新されます
-var MONTHS=[
-  {m:4,t:'説明会',tag:'新歓',x:'新しい仲間向けの説明会。和紙ちぎりの体験コーナーも。'},
-  {m:5,t:'A施設訪問',tag:'訪問',x:'今年度はじめての訪問。和紙で「こいのぼり」を貼りあわせました。'},
-  {m:6,t:'ロールプレイ・振り返り会',tag:'交流',x:'声かけのロールプレイと振り返り会。メンバー交流会もあわせて実施。'},
-  {m:7,t:'七夕飾りづくり',tag:'訪問',x:'B施設で、ちぎった和紙の短冊と天の川をみんなで制作。'},
-  {m:8,t:'夏合宿',tag:'研究',x:'研究計画の見直しと、秋の題材の試作。'},
-  {m:9,t:'敬老の日 作品展',tag:'展示',x:'施設のみなさんの作品を、施設のロビーで展示しました。'},
-  {m:10,t:'学園祭展示・ハロウィン',tag:'展示',x:'活動紹介パネルと、来場者向けのちぎり絵体験。大阪のデイサービス施設ではハロウィンイベントを開催。'},
-  {m:11,t:'紅葉のちぎり絵',tag:'訪問',x:'C施設訪問。赤や黄の和紙を破いて、紅葉の山をつくりました。'},
-  {m:12,t:'年末振り返り会',tag:'交流',x:'1年の記録を見返し、みんなで次の年の目標を話し合いました。'},
-  {m:1,t:'お正月飾り',tag:'訪問',x:'和紙を切り貼りして、干支と鏡もちの飾りを制作。'},
-  {m:2,t:'研究まとめ',tag:'研究',x:'活動記録とアンケートを分析し、報告書にまとめます。'},
-  {m:3,t:'成果発表',tag:'発表',x:'成果を発表し、1年の活動をふり返ります。'}
-];
-var PERIODS=[
-  {key:'spring',ja:'春',en:'SPRING',r:'4〜6月',ms:[4,5,6]},
-  {key:'summer',ja:'夏休み',en:'SUMMER BREAK',r:'7〜9月',ms:[7,8,9]},
-  {key:'autumn',ja:'秋',en:'AUTUMN',r:'10〜11月',ms:[10,11]},
-  {key:'winter',ja:'冬',en:'WINTER',r:'12〜1月',ms:[12,1]},
-  {key:'plum',ja:'春休み',en:'SPRING BREAK',r:'2〜3月',ms:[2,3]}
-];
-var tabs=document.getElementById('ptabs'),list=document.getElementById('pmonths');
-tabs.innerHTML=PERIODS.map(function(p,i){return '<button role="tab" data-i="'+i+'" data-s="'+p.key+'">'+p.ja+'<small>'+p.en+'　'+p.r+'</small></button>'}).join('');
-function show(i){
-  [].forEach.call(tabs.children,function(b,j){b.classList.toggle('is-on',i===j);b.setAttribute('aria-selected',i===j)});
-  list.setAttribute('data-s',PERIODS[i].key);
-  list.innerHTML=PERIODS[i].ms.slice().reverse().map(function(m){return MONTHS.filter(function(d){return d.m===m})}).reduce(function(a,b){return a.concat(b)},[]).map(function(d){
-    return '<li><span class="pm">'+d.m+'月</span><span class="pt">'+d.tag+'</span><div><strong>'+d.t+'</strong><p>'+d.x+'</p></div></li>';
+// ▼ 沿革データ：年度ごとに、新しい出来事を上に足していく。年度が増えるとボタンも自動で増えます。
+//   ym: 年月 ／ tag: 区分 ／ t: タイトル ／ x: 説明（年度は4月はじまり）
+var HISTORY = {
+  2025: {
+    sum: '活動のはじまり。協力施設での試行を重ね、研究のかたちを探った年度。【仮】',
+    items: [
+      {ym:'2026.03', tag:'研究', t:'和アートセラピーの研究が論文に掲載', x:'『順天堂グローバル教養論集』第十一巻に、「和アートセラピーの気分変容効果に関する研究」が掲載されました。'},
+      {ym:'2025.10', tag:'訪問', t:'協力施設での試行【仮】', x:'協力施設で、和紙のちぎり絵を試行的に実施。参加者の反応を記録しました。'},
+      {ym:'2025.04', tag:'発足', t:'活動開始【仮】', x:'和アートセラピーの活動をスタート。学生メンバーで、題材と進め方を相談しました。'}
+    ]
+  },
+  2026: {
+    sum: 'NPO法人化に向けて、活動と研究を広げる年度。【仮】',
+    items: [
+      {ym:'2026.11', tag:'NPO', t:'NPO法人設立の準備を開始', x:'法人化に向けて、サイトと体制づくりの準備をはじめました。'},
+      {ym:'2026.10', tag:'展示', t:'学園祭展示・ハロウィンイベント【仮】', x:'活動紹介パネルと来場者向けのちぎり絵体験。大阪のデイサービス施設では、ハロウィンのコラージュを一緒につくりました。'},
+      {ym:'2026.09', tag:'展示', t:'敬老の日 作品展【仮】', x:'施設のみなさんの作品を、A施設のロビーで展示しました。'},
+      {ym:'2026.08', tag:'研究', t:'夏合宿【仮】', x:'研究計画の見直しと、秋の題材の試作。'},
+      {ym:'2026.07', tag:'訪問', t:'七夕飾りづくり【仮】', x:'B施設で、ちぎった和紙の短冊と天の川をみんなで制作。'},
+      {ym:'2026.06', tag:'交流', t:'ロールプレイ・振り返り会【仮】', x:'声かけのロールプレイと振り返り会。メンバー交流会もあわせて実施。'},
+      {ym:'2026.05', tag:'訪問', t:'今年度はじめての訪問（こいのぼりの貼り絵）【仮】', x:'A施設で、和紙を貼りあわせて「こいのぼり」を制作。'},
+      {ym:'2026.04', tag:'新歓', t:'説明会【仮】', x:'新しい仲間向けの説明会。和紙ちぎりの体験コーナーも。'}
+    ]
+  },
+  2027: {
+    sum: 'これからの年度。実際の予定・実績が決まったら、ここに足していきます。【仮】',
+    items: [
+      {ym:'2027.04', tag:'予定', t:'【仮】NPO法人としての活動開始', x:'法人設立後の最初の年度。施設・学生・研究をつなぐ活動を、地域へ広げていく計画です。'}
+    ]
+  }
+};
+
+function period(m){ return m>=4&&m<=6?'spring':m>=7&&m<=9?'summer':m>=10&&m<=11?'autumn':(m===12||m===1)?'winter':'plum'; }
+var years=Object.keys(HISTORY).sort(), btns=document.getElementById('ybtns'), tl=document.getElementById('ytl'), sum=document.getElementById('ysum');
+btns.innerHTML=years.map(function(y){return '<button role="tab" data-y="'+y+'"><b>'+y+'</b><small>年度</small></button>'}).join('');
+function show(y){
+  [].forEach.call(btns.children,function(b){var on=b.getAttribute('data-y')===String(y);b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on)});
+  var d=HISTORY[y];sum.textContent=y+'年度｜'+d.sum;
+  tl.innerHTML=d.items.map(function(it){
+    var m=+it.ym.split('.')[1],s=period(m);
+    return '<li data-s="'+s+'"><span class="ytl-d">'+it.ym+'</span><div><span class="ytl-t">'+it.tag+'</span><strong>'+it.t+'</strong><p>'+it.x+'</p></div></li>';
   }).join('');
 }
-tabs.addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(+b.getAttribute('data-i'))});
-var mo=new Date().getMonth()+1,cur=PERIODS.findIndex(function(p){return p.ms.indexOf(mo)>-1});
-show(cur<0?0:cur);
+btns.addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b.getAttribute('data-y'))});
+var now=new Date(),fy=now.getMonth()+1>=4?now.getFullYear():now.getFullYear()-1;
+show(HISTORY[fy]?fy:years[years.length-1]);
 </script>
 </body>
 </html>
