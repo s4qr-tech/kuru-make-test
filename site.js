@@ -40,7 +40,12 @@
     '<a class="totop" href="#" aria-label="ページの先頭へ"><svg viewBox="0 0 36 24" width="36" height="24"><path d="M0 12 L18 1 L36 12 M18 1 V24" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>');
 
   var hd=document.getElementById('hd'),b=document.getElementById('burger'),d=document.getElementById('drawer');
-  function sc(){hd.classList.toggle('scrolled',window.scrollY>120)}
+  // トップでは、大見出し「和アートセラピー」が見えなくなってから帯にする（それまでは透明のまま）
+  var mark=page==='top'?document.querySelector('.top-mark'):null;
+  function sc(){
+    var on=mark?mark.getBoundingClientRect().bottom<(hd.offsetHeight||70):window.scrollY>120;
+    hd.classList.toggle('scrolled',on);
+  }
   addEventListener('scroll',sc,{passive:true});sc();
   b.addEventListener('click',function(){
     var o=b.getAttribute('aria-expanded')==='true';
