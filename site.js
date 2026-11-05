@@ -36,7 +36,7 @@
     '<div class="drawer" id="drawer" hidden>'+nav.concat(more).map(function(n){return '<a href="'+n[1]+'">'+n[0]+'</a>'}).join('')+'</div>';
   document.body.insertAdjacentHTML('afterbegin', html);
   document.body.insertAdjacentHTML('beforeend',
-    '<footer class="ft"><div class="fl2">'+nav.concat(more).map(function(n){return '<a href="'+n[1]+'">'+n[0]+'</a>'}).join('')+'</div><p>Copyright© 2026 kuru.make. All rights reserved.　NPO法人 kuru.make【設立準備中】</p></footer>'+
+    '<footer class="ft"><div class="fl2">'+nav.concat(more).map(function(n){return '<a href="'+n[1]+'">'+n[0]+'</a>'}).join('')+'</div><p>© 2026 kuru.make.</p></footer>'+
     '<a class="totop" href="#" aria-label="ページの先頭へ"><svg viewBox="0 0 36 24" width="36" height="24"><path d="M0 12 L18 1 L36 12 M18 1 V24" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>');
 
   var hd=document.getElementById('hd'),b=document.getElementById('burger'),d=document.getElementById('drawer');
