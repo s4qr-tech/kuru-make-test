@@ -35,10 +35,12 @@ window.KM_FLOW = [
   var N=els.length, t0=performance.now(), sy=0;
   addEventListener('scroll',function(){sy=scrollY},{passive:true});
   function frame(now){
-    var W=host.clientWidth,H=host.clientHeight,t=(now-t0)/1000, speed=still?0:0.018;
+    var W=host.clientWidth,H=host.clientHeight,t=(now-t0)/1000;
+    // スマホは画面が狭く、同じ割合だとほとんど動いて見えないので、速さを上げる
+    var speed=still?0:0.018*Math.max(1,Math.min(3,900/W));
     els.forEach(function(el,i){
       // 右上 → 左下へ斜めに流れる。各カードは等間隔にずらして配置
-      var p=((i/N)+t*speed+sy*0.00006)%1; if(p<0)p+=1;
+      var p=((i/N)+t*speed+sy*(still?0.00018:0.00006))%1; if(p<0)p+=1;
       var x=W*(1.15-1.5*p) , y=H*(-0.25+1.5*p) ;
       // 横方向にも少しばらけさせる
       x+= ((i*97)%11-5)*W*0.045;
@@ -48,4 +50,7 @@ window.KM_FLOW = [
   }
   frame(t0);
   if(!still) requestAnimationFrame(frame);
+  // 「視差効果を減らす」設定のときは、自動では動かさず、スクロールに合わせて動かす
+  if(still) addEventListener('scroll',function(){frame(performance.now())},{passive:true});
+  addEventListener('resize',function(){frame(performance.now())});
 })();

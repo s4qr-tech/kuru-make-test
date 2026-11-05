@@ -350,3 +350,23 @@ img{display:block}
 .off-paper b{display:block;font-family:var(--lat);font-size:11px;letter-spacing:.14em;margin-bottom:6px}
 .off-paper a{display:block;border-bottom:1px solid var(--ink);padding-bottom:6px}
 .off-paper a span{display:inline-block;margin-left:10px;font-family:var(--lat);font-size:11px;letter-spacing:.1em}
+
+/* ===== 四季の色（ロゴの淡い四季色）：JOIN US・目次のハイライト ===== */
+:root{--sp:#dcefe7;--sp2:#bfe3d6;--su:#f8efc6;--su2:#f1e08f;--au:#fbe2d2;--au2:#f6c3a2;--wi:#f9e0ea;--wi2:#f2b9d0}
+.joins{gap:0}
+.joins li{border-left:0}
+.joins a{position:relative;padding:34px 24px 42px;background:var(--c);transition:background .5s,transform .5s;overflow:hidden}
+.joins a:before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--h)}
+.joins a:after{content:"";position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;border-radius:50%;background:var(--h);opacity:.25;transition:transform .6s,opacity .6s}
+.joins a:hover{background:var(--c2)}
+.joins a:hover:after{transform:scale(1.5);opacity:.4}
+.joins li:nth-child(1) a{--c:var(--sp);--c2:var(--sp2);--h:#63b8a5}
+.joins li:nth-child(2) a{--c:var(--su);--c2:var(--su2);--h:#e2c350}
+.joins li:nth-child(3) a{--c:var(--au);--c2:var(--au2);--h:#ee8a56}
+.joins li:nth-child(4) a{--c:var(--wi);--c2:var(--wi2);--h:#e98cb5}
+.joins small,.joins b,.joins p{position:relative;z-index:1}
+.toc a:nth-child(4n+1):hover{background:var(--sp)}
+.toc a:nth-child(4n+2):hover{background:var(--su)}
+.toc a:nth-child(4n+3):hover{background:var(--au)}
+.toc a:nth-child(4n):hover{background:var(--wi)}
+@media (max-width:900px){.joins{gap:12px}}
