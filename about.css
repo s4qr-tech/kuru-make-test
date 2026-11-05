@@ -466,3 +466,78 @@ img{display:block}
   .hd.scrolled{padding:8px 20px}
   .hd.scrolled .hd-logo img{width:30px;height:30px}
 }
+.sym-t p{font-size:14px;line-height:2.4;letter-spacing:.06em;text-align:left}
+.sym-t p+p{margin-top:1.2em}
+
+/* ABOUT：マニフェスト（見出し付き） */
+.mani-text h2{margin:3.6em 0 1.3em;padding-top:1.4em;border-top:1px solid var(--ink);font-size:16px;font-weight:700;letter-spacing:.1em;line-height:1.8}
+.mani-text h2:first-child{margin-top:0;border-top:0;padding-top:0}
+.mani-text .ask{font-size:16px;font-weight:700;line-height:2.3}
+.mani-text .mani-link a{border-bottom:1px solid var(--ink);padding-bottom:3px;font-size:13px;letter-spacing:.08em}
+.mani-text .sign{margin-top:4em}
+.mani-text{width:min(560px,48%)}
+@media (max-width:900px){
+  .mani-text{width:100%}
+  .mani-text br{display:none}
+  .mani-text h2{margin-top:3em}
+}
+
+/* ベン図：ラベルを2段（英字＋和文）に */
+.t .en{font-family:var(--lat);font-size:10px;letter-spacing:.14em}
+.t .ja{font-family:var(--ja);font-size:13px;font-weight:700;letter-spacing:.1em}
+.t4 .en{font-size:11px;font-weight:500}
+.t{transition:opacity .5s}
+@media (max-width:900px){
+  /* スマホ：文章の下に、そのまま中央に置く（空白を残さない） */
+  .venn{position:static;width:min(300px,80%);margin:56px auto 0;opacity:1}
+  .mani{padding-bottom:70px}
+}
+.mani-text h2 i{display:block;margin-bottom:8px;font:700 12px var(--lat);font-style:normal;letter-spacing:.16em}
+.mani-text h2{font-size:18px}
+
+/* ===== 装飾：背景の色・ちぎり紙の縁・和紙のにじみ ===== */
+:root{--paper:#f6f3ec}
+body{background:var(--paper);
+  background-image:
+    radial-gradient(circle at 12% 18%,rgba(99,184,165,.08) 0 18%,transparent 19%),
+    radial-gradient(circle at 88% 42%,rgba(238,138,86,.07) 0 16%,transparent 17%),
+    radial-gradient(circle at 20% 78%,rgba(233,140,181,.07) 0 15%,transparent 16%),
+    radial-gradient(circle at 80% 92%,rgba(226,195,80,.09) 0 17%,transparent 18%);
+  background-attachment:fixed}
+.t-sp{--tint:#e8f4ee;--h:#63b8a5}.t-su{--tint:#fbf5d9;--h:#e2c350}.t-au{--tint:#fcebe0;--h:#ee8a56}.t-wi{--tint:#fbe8ef;--h:#e98cb5}
+.tint{position:relative;background:var(--tint);margin-top:34px}
+.tint:before{content:"";position:absolute;left:0;right:0;top:-17px;height:18px;background:var(--tint);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 18' preserveAspectRatio='none'%3E%3Cpath d='M0 18 L0 9 Q8 3 16 8 T34 6 T50 10 T68 4 T86 9 T104 3 T122 8 T140 5 T160 9 L160 18Z'/%3E%3C/svg%3E") repeat-x left bottom/160px 18px;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 18' preserveAspectRatio='none'%3E%3Cpath d='M0 18 L0 9 Q8 3 16 8 T34 6 T50 10 T68 4 T86 9 T104 3 T122 8 T140 5 T160 9 L160 18Z'/%3E%3C/svg%3E") repeat-x left bottom/160px 18px}
+.tint .lab:before{content:"";display:block;width:12px;height:12px;margin:0 auto 14px;border-radius:50%;background:var(--h)}
+.tint:after{content:"";position:absolute;right:-60px;top:40px;width:220px;height:220px;border-radius:50%;background:var(--h);opacity:.12;pointer-events:none;z-index:0}
+.tint>*{position:relative;z-index:1}
+.mani.tint{margin-top:0}
+.mani.tint:before{display:none}
+
+/* ページ上部：四季の和紙のにじみ */
+.page-head,.hero{position:relative;overflow:hidden}
+.page-head:before,.hero:before{content:"";position:absolute;right:-4vw;top:60px;width:clamp(220px,34vw,520px);aspect-ratio:1;pointer-events:none;
+  background:
+    radial-gradient(circle at 30% 35%,rgba(99,184,165,.55) 0 28%,transparent 29%),
+    radial-gradient(circle at 66% 30%,rgba(226,195,80,.55) 0 24%,transparent 25%),
+    radial-gradient(circle at 70% 68%,rgba(238,138,86,.5) 0 26%,transparent 27%),
+    radial-gradient(circle at 32% 72%,rgba(233,140,181,.55) 0 25%,transparent 26%);
+  animation:blobs 18s ease-in-out infinite alternate;opacity:.75}
+@keyframes blobs{from{transform:translate(0,0) rotate(0)}to{transform:translate(-14px,10px) rotate(12deg)}}
+.page-head>*,.hero>*{position:relative;z-index:1}
+
+/* ヘッダー下・フッターに四季の線 */
+.ft{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent 40%)}
+.ft:before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#63b8a5 0 25%,#e2c350 25% 50%,#ee8a56 50% 75%,#e98cb5 75%)}
+.ft{margin-top:60px}
+
+/* カード類を少し立体に */
+.off-msg,.callout,.pcard,.off-paper{box-shadow:0 1px 0 rgba(17,17,17,.06),0 10px 26px -18px rgba(17,17,17,.35)}
+@media (max-width:900px){
+  .tint{margin-top:26px}
+  .tint:after{width:150px;height:150px;right:-50px}
+  .page-head:before,.hero:before{top:70px;right:-12vw;width:60vw;opacity:.6}
+}
+@media (prefers-reduced-motion:reduce){.page-head:before,.hero:before{animation:none}}
+html,body{overflow-x:clip}

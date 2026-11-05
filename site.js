@@ -81,6 +81,16 @@
     }).join('');
   }
 
+
+  // ---- 装飾：セクションに四季の淡い色（春→夏→秋→冬の順）をつける ----
+  (function(){
+    var T=['t-sp','t-su','t-au','t-wi'],k=0;
+    [].forEach.call(document.querySelectorAll('body > section.wrap, body > section.blk, body > section.mani'),function(el){
+      if(el.classList.contains('top')||el.classList.contains('page-head')||el.classList.contains('hero'))return;
+      el.classList.add('tint',T[k%4]);k++;
+    });
+  })();
+
   // ---- アコーディオン ----
   [].forEach.call(document.querySelectorAll('.acc-h'),function(h){
     h.addEventListener('click',function(){
