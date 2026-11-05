@@ -665,3 +665,15 @@ body:not([data-page=members]) .toc a{border-bottom-color:var(--ink)}
 .lead{text-wrap:balance}
 .lead .nb{display:inline-block}
 @media (max-width:900px){.efx{grid-template-columns:1fr!important;gap:34px!important}}
+
+/* ===== ABOUT 冒頭：画面にきれいに収め、近づいたら定位置に吸着 ===== */
+body[data-page=about] .hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px 0 90px 210px;box-sizing:border-box}
+.hero-ja .nb{display:inline-block}
+@media (max-width:900px){
+  body[data-page=about] .hero{padding:96px 20px 64px}
+  .hero-en{font-size:clamp(52px,17vw,110px)}
+  .hero-ja{font-size:clamp(15px,4.4vw,24px);line-height:2;letter-spacing:.04em;margin-top:32px}
+}
+@media (prefers-reduced-motion:reduce){html.snap{scroll-snap-type:none}}
+
+.hero-en,.hero-ja{will-change:transform}
