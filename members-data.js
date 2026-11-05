@@ -6,7 +6,7 @@
 // ・理事・監事・顧問は「顔写真」と「プロフィール」が必須（空のままだと「提出待ち」の表示が出る）
 window.KM_MEMBERS = {
   directors: [
-    { consent:true, kari:true, name:'山本 みなみ', kana:'やまもと みなみ', role:'代表理事', en:'Representative Director',
+    { consent:true, kari:true, name:'スンスン', kana:'すんすん', role:'代表理事', en:'Representative Director',
       affil:'【仮・要確認】順天堂大学 ほか',
       photo:'',
       duties:['団体の代表として、活動方針の決定と対外的な窓口を担う','和アートセラピーの研究と、論文の執筆・研究発表'],
