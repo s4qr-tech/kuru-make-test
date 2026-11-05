@@ -756,3 +756,11 @@ body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px
 .form input[type=text],.form input[type=email],.form input[type=tel],.form input[type=number],.form select{padding-left:.5em;padding-right:.5em}
 .form select{padding-right:34px}
 .form textarea{padding-left:.5em;padding-right:.5em}
+
+/* カード（JOIN US・MEMBERS の3枚）：文章の長さが違っても、同じ大きさにそろえる */
+.joins{align-items:stretch;gap:14px}
+.joins li{display:flex}
+.joins li a{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:200px;border-bottom:0;padding:34px 26px 40px;box-sizing:border-box}
+.joins li a p{margin-top:12px}
+@media (max-width:900px){.joins{gap:12px}.joins li a{min-height:0;padding:26px 22px 30px}}
+@media (max-width:900px){.joins li a{min-height:176px}}
