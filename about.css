@@ -687,3 +687,9 @@ body[data-page=about] .hero .hero-ja{font-size:clamp(13px,min(2.6vw,3.3vh),36px)
   body[data-page=about] .hero .hero-en{font-size:clamp(40px,min(17vw,9.5vh),110px)}
   body[data-page=about] .hero .hero-ja{font-size:clamp(13px,min(4.4vw,2.7vh),24px);line-height:1.95;margin-top:clamp(16px,3.5vh,32px)}
 }
+
+/* ABOUT 冒頭：見出し「ART OF CONNECTING」を大きく（画面に収まる範囲で） */
+body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px)}
+@media (max-width:900px){
+  body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(18.8vw,12vh),130px)}
+}
