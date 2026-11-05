@@ -421,3 +421,48 @@ img{display:block}
   .ptabs{gap:8px}.ptabs button{padding:6px 12px;font-size:14px}
   .pmonths li{padding-left:14px;padding-right:14px}
 }
+
+/* 研究論文：カード型パネル */
+.pidx{max-width:1000px;margin:50px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--ink)}
+.pidx a{display:block;padding:20px 10px 22px 0;border-bottom:1px solid var(--ink);font-size:14px;line-height:1.8;letter-spacing:.05em;transition:background .4s,padding .4s}
+.pidx a b{display:block;margin-bottom:4px;font-family:var(--lat);font-size:11px;letter-spacing:.14em}
+.pidx li:nth-child(1) a:hover{background:var(--sp);padding-left:12px}
+.pidx li:nth-child(2) a:hover{background:var(--su);padding-left:12px}
+.pidx .soon{color:var(--mute)}
+.pcard{max-width:1000px;margin:50px auto 0;display:grid;grid-template-columns:200px 1fr;background:#fff;border-top:4px solid #63b8a5;scroll-margin-top:100px}
+.pcard-soon{border-top-color:#e2c350;opacity:.75}
+.pc-side{padding:34px 24px;background:var(--sp);display:flex;flex-direction:column;gap:14px}
+.pcard-soon .pc-side{background:var(--su)}
+.pc-y{font:700 54px/1 var(--en)}
+.pc-j{font-size:12px;line-height:1.8;letter-spacing:.05em}
+.pc-t{margin-top:auto;font-family:var(--lat);font-size:10px;letter-spacing:.12em;color:#333}
+.pc-main{padding:34px 40px 40px}
+.pc-k{font-family:var(--lat);font-size:11px;letter-spacing:.16em}
+.pc-main h3{margin-top:10px;font-size:clamp(18px,2vw,24px);line-height:1.7;letter-spacing:.06em}
+.pc-main h3 small{display:block;font-size:13px;font-weight:500;color:var(--mute);margin-top:4px}
+.pc-a{margin-top:12px;font-size:13px;letter-spacing:.05em}
+.pc-d{margin-top:26px;display:grid;grid-template-columns:110px 1fr;gap:18px 20px;font-size:14px;line-height:2.1;letter-spacing:.04em;border-top:1px solid #ddd;padding-top:26px}
+.pc-d dt{font-family:var(--ja);font-size:12px;font-weight:700;letter-spacing:.1em;padding-top:4px}
+.pc-d ul{list-style:none}.pc-d li{position:relative;padding-left:1.2em}.pc-d li+li{margin-top:.4em}
+.pc-d li:before{content:"";position:absolute;left:.1em;top:1.05em;width:6px;height:6px;border-radius:50%;background:#63b8a5}
+.pc-n{margin-top:22px;font-size:11px;color:var(--mute);line-height:1.9}
+.pc-btn{display:inline-flex;gap:10px;margin-top:24px;padding:14px 30px;background:var(--ink);color:#fff;font-size:13px;letter-spacing:.1em;transition:background .4s}
+.pc-btn:hover{background:#2f9e86}
+@media (max-width:900px){
+  .pidx{grid-template-columns:1fr}
+  .pcard{grid-template-columns:1fr}
+  .pc-side{flex-direction:row;align-items:baseline;flex-wrap:wrap;padding:20px 22px;gap:6px 14px}
+  .pc-y{font-size:40px}.pc-t{margin-top:0}
+  .pc-main{padding:26px 22px 30px}
+  .pc-d{grid-template-columns:1fr;gap:4px}.pc-d dd{margin-bottom:14px}
+}
+
+/* ===== ヘッダー：スクロール後は帯にして、ロゴだけ小さく。下の文字と重ならない ===== */
+.hd{transition:padding .35s,background .35s,box-shadow .35s}
+.hd.scrolled{pointer-events:auto;padding:10px 60px;background:rgba(245,245,245,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(17,17,17,.12)}
+.hd.scrolled .hd-logo span{display:none}
+.hd.scrolled .hd-logo img{width:34px;height:34px}
+@media (max-width:900px){
+  .hd.scrolled{padding:8px 20px}
+  .hd.scrolled .hd-logo img{width:30px;height:30px}
+}
