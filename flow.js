@@ -4,17 +4,14 @@
 //   2. 下の KM_FLOW の src に 'works/001.jpg' と書く（空のままなら仮の和紙ブロックを表示）
 //   3. kind は WORK（施設の方と作った作品）／BACKSTAGE（活動の背景）／SCENE（情景）
 //   ※ 写真に写る方の掲載許可を得たものだけ入れること
+// ※ 現在は3枚の写真を、順番を変えて繰り返し流している（密度を保つため）
 window.KM_FLOW = [
-  {src:'', kind:'WORK',      cap:'和紙のちぎり絵（施設の方と）'},
-  {src:'', kind:'SCENE',     cap:'活動の情景'},
-  {src:'', kind:'WORK',      cap:'ハロウィンのコラージュ'},
-  {src:'', kind:'BACKSTAGE', cap:'準備の風景'},
-  {src:'', kind:'WORK',      cap:'うちわづくり'},
-  {src:'', kind:'SCENE',     cap:'おしゃべりの時間'},
-  {src:'', kind:'WORK',      cap:'桜のコラージュ'},
-  {src:'', kind:'BACKSTAGE', cap:'和紙を選ぶ'},
-  {src:'', kind:'WORK',      cap:'季節の貼り絵'},
-  {src:'', kind:'SCENE',     cap:'施設の窓辺'}
+  {src:'assets/flow/collage.jpg', kind:'WORK',  cap:'和紙のちぎり絵'},
+  {src:'assets/flow/scene.jpg',   kind:'SCENE', cap:'みんなで描く時間'},
+  {src:'assets/flow/hands.jpg',   kind:'WORK',  cap:'和紙をちぎる手'},
+  {src:'assets/flow/hands.jpg',   kind:'WORK',  cap:'和紙をちぎる手'},
+  {src:'assets/flow/collage.jpg', kind:'WORK',  cap:'和紙のちぎり絵'},
+  {src:'assets/flow/scene.jpg',   kind:'SCENE', cap:'みんなで描く時間'}
 ];
 
 (function(){
