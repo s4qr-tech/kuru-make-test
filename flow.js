@@ -68,15 +68,19 @@ window.KM_FLOW = [
   var NX=DY, NY=-DX;                                                // 横にずれる向き（流れに直角）
   function frame(now){
     var W=host.clientWidth,H=host.clientHeight,t=(now-t0)/1000;
-    // ▼ スマホ（900px以下）は初期案：右上→左下へ、等間隔で流れる（紙吹雪なし・写真は最初の11枚）
+    // ▼ スマホ（900px以下）：ギャラリーのように、真横（右 → 左）へ一列で流れ続ける（紙吹雪なし・写真は最初の11枚）
     if(mq.matches){
-      var half=els.length/2, sp0=(calm?0.011:0.018)*Math.max(1,Math.min(3,900/W));
+      var half=els.length/2, gap=26, cw=0, cy=H*0.46, spd=(calm?26:40);
+      for(var j=0;j<half;j++){ cw+=els[j].offsetWidth+gap }
+      var off=(t*spd+sy*0.3)%cw, pos=0;
       els.forEach(function(el,i){
         if(i>=half){el.style.display='none';return}
         el.style.display='';
-        var p=((i/half)+t*sp0+sy*0.00006)%1; if(p<0)p+=1;
-        var x=W*(1.15-1.5*p)+((i*97)%11-5)*W*0.045, y=H*(-0.25+1.5*p);
-        el.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px) rotate('+el._o.r+'deg) scale('+el._o.s.toFixed(2)+')';
+        var w=el.offsetWidth, h=el.offsetHeight;
+        // 右の外から入り、左の外へ抜ける（出入りは画面の外）
+        var x=((W+w-pos-off)%cw+cw)%cw-w;
+        pos+=w+gap;
+        el.style.transform='translate('+x.toFixed(1)+'px,'+(cy-h/2).toFixed(1)+'px) rotate(0deg) scale(1)';
       });
       conf.forEach(function(e){e.style.display='none'});
       requestAnimationFrame(frame);return;
