@@ -1,0 +1,12 @@
+# kuru.make（くるめいく）
+
+> 和紙をちぎって貼る「和アートセラピー」を通して、学生と高齢者、施設と地域をつなぐ団体のサイトです。内容は仮置きを含みます。
+
+## ページ
+- [トップ](https://s4qr-tech.github.io/kuru-make-test/): 団体の紹介、お知らせ、団体概要
+- [ABOUT](https://s4qr-tech.github.io/kuru-make-test/about.html): 考え方と活動の柱
+- [RESEARCH](https://s4qr-tech.github.io/kuru-make-test/research.html): 研究成果、論文、活動の流れ、参加者の声
+- [MEMBERS](https://s4qr-tech.github.io/kuru-make-test/members.html): 代表・理事・顧問・協力施設・学生パートナー
+- [HISTORY](https://s4qr-tech.github.io/kuru-make-test/history.html): 年度ごとの活動のあゆみ
+- [SUPPORT](https://s4qr-tech.github.io/kuru-make-test/support.html): 参加・ご支援・お問い合わせ
+- [NEWS](https://s4qr-tech.github.io/kuru-make-test/news.html): お知らせと活動レポート

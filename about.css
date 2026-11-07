@@ -775,3 +775,11 @@ body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px
   .fl,.fl-scene,.fl-backstage{width:74vw}
   .fl figcaption{font-size:12px}
 }
+
+/* 見出しの日本語ラベル（SEO・読みやすさのため英語見出しに併記） */
+.lab .jp{display:block;margin-top:8px;font-family:var(--ja);font-weight:400;font-size:12px;letter-spacing:.12em;color:var(--mute)}
+
+/* スマホも：スクロール後は、左上のロゴのマークを出さない（右上の3本線だけ残す） */
+@media (max-width:900px){
+  .hd.scrolled .hd-logo{opacity:0;visibility:hidden;pointer-events:none;box-shadow:none}
+}
