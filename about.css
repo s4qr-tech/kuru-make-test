@@ -783,3 +783,8 @@ body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px
 @media (max-width:900px){
   .hd.scrolled .hd-logo{opacity:0;visibility:hidden;pointer-events:none;box-shadow:none}
 }
+
+/* PC：背景で流れる絵は、いちばん上のメニュー（ABOUT〜CONTACT）にかぶらないよう、その下からふわっと現れる */
+@media (min-width:901px){
+  .flow{-webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 96px,#000 170px);mask-image:linear-gradient(to bottom,transparent 0,transparent 96px,#000 170px)}
+}
