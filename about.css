@@ -769,3 +769,9 @@ body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px
 .kari{display:inline-block;margin-left:.4em;font-size:.5em;font-weight:500;letter-spacing:.06em;color:#b04a3a;vertical-align:.35em;white-space:nowrap}
 .stu .kari{font-size:11px;vertical-align:baseline;margin-left:.3em}
 .fac .kari{font-size:11px;vertical-align:baseline}
+
+/* スマホ：TOPの横に流れる絵画を大きく */
+@media (max-width:900px){
+  .fl,.fl-scene,.fl-backstage{width:74vw}
+  .fl figcaption{font-size:12px}
+}
