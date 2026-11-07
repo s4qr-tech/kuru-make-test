@@ -1,6 +1,6 @@
 /* pool-inc.net/about の構成・レイアウトを参考にしたオリジナル試作（文章・画像・ロゴは流用なし） */
 :root{
-  --bg:#f5f5f5; --ink:#111; --line:#111; --mute:#666;
+  --bg:#e9e8e4; --ink:#111; --line:#111; --mute:#666;
   --en:"Barlow Condensed","Arial Narrow",sans-serif;
   --ja:"Noto Sans JP","Hiragino Sans",sans-serif;
   --lat:"Barlow","Helvetica Neue",Arial,sans-serif;
@@ -373,13 +373,13 @@ img{display:block}
 
 /* ===== TOP：流れる写真の上でも読めるように、文字の下地をつくる ===== */
 .top:after{content:"";position:absolute;left:0;right:0;bottom:0;height:min(34vh,260px);z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(245,245,245,0),rgba(245,245,245,.88) 55%,rgba(245,245,245,.96))}
+  background:linear-gradient(180deg,rgba(233,232,228,0),rgba(233,232,228,.88) 55%,rgba(233,232,228,.96))}
 .top-sub{z-index:3;left:50%;right:auto;transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);padding:8px 18px;
-  background:rgba(245,245,245,.92);box-shadow:0 0 0 1px rgba(17,17,17,.12);text-align:center;line-height:1.7}
+  background:rgba(233,232,228,.92);box-shadow:0 0 0 1px rgba(17,17,17,.12);text-align:center;line-height:1.7}
 .kinds{z-index:3}
-.kinds li{padding:3px 8px;background:rgba(245,245,245,.94)}
+.kinds li{padding:3px 8px;background:rgba(233,232,228,.94)}
 .kinds{color:#333}
-.top-mark{text-shadow:0 0 24px rgba(245,245,245,.95),0 0 8px rgba(245,245,245,.9)}
+.top-mark{text-shadow:0 0 24px rgba(233,232,228,.95),0 0 8px rgba(233,232,228,.9)}
 @media (max-width:900px){
   .top-sub{bottom:112px;font-size:12px;white-space:normal;width:auto;left:16px;right:16px;transform:none;padding:8px 12px}
   .kinds{gap:6px 6px}
@@ -459,7 +459,7 @@ img{display:block}
 
 /* ===== ヘッダー：スクロール後は帯にして、ロゴだけ小さく。下の文字と重ならない ===== */
 .hd{transition:padding .35s,background .35s,box-shadow .35s}
-.hd.scrolled{pointer-events:auto;padding:10px 60px;background:rgba(245,245,245,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(17,17,17,.12)}
+.hd.scrolled{pointer-events:auto;padding:10px 60px;background:rgba(233,232,228,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(17,17,17,.12)}
 .hd.scrolled .hd-logo span{display:none}
 .hd.scrolled .hd-logo img{width:34px;height:34px}
 @media (max-width:900px){
@@ -496,7 +496,7 @@ img{display:block}
 .mani-text h2{font-size:18px}
 
 /* ===== 装飾：背景の色・ちぎり紙の縁・和紙のにじみ ===== */
-:root{--paper:#f6f3ec}
+:root{--paper:#e9e8e4}
 body{background:var(--paper);
   background-image:
     radial-gradient(circle at 12% 18%,rgba(99,184,165,.08) 0 18%,transparent 19%),
@@ -554,7 +554,7 @@ body{background-image:
 .off-msg,.callout,.pcard,.off-paper{box-shadow:0 8px 22px -20px rgba(17,17,17,.3)}
 
 /* トップは、装飾なし（以前の状態） */
-body[data-page=top]{background:#f5f5f5;background-image:none}
+body[data-page=top]{background:var(--bg);background-image:none}
 body[data-page=top] .ft{margin-top:0;background:none}
 body[data-page=top] .ft:before{display:none}
 body[data-page=top] .tint{background:none;margin-top:0}
@@ -589,7 +589,7 @@ body[data-page=top] .tint .lab:before{display:none}
 body[data-page=members] .toc a:hover{background:#fff}
 
 /* ===== NEWS：装飾なし（元の背景） ===== */
-body[data-page=news]{background:#f5f5f5;background-image:none}
+body[data-page=news]{background:var(--bg);background-image:none}
 body[data-page=news] .page-head:before{display:none}
 body[data-page=news] .ft{margin-top:0;background:none}
 body[data-page=news] .ft:before{display:none}
@@ -609,7 +609,7 @@ body[data-page=news] .tint,body[data-page=news] .tint:before,body[data-page=news
 .ytl{max-width:820px;margin:44px auto 0;position:relative;padding-left:0}
 .ytl:before{content:"";position:absolute;left:119px;top:8px;bottom:8px;width:1px;background:rgba(17,17,17,.2)}
 .ytl li{display:grid;grid-template-columns:100px 1fr;gap:0 40px;padding:22px 0;position:relative}
-.ytl li:before{content:"";position:absolute;left:114px;top:30px;width:11px;height:11px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px rgba(245,245,245,.9)}
+.ytl li:before{content:"";position:absolute;left:114px;top:30px;width:11px;height:11px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px rgba(233,232,228,.9)}
 .ytl-d{font:700 15px/1.9 var(--en);letter-spacing:.08em;text-align:right;padding-right:4px}
 .ytl-t{display:inline-block;margin-right:10px;padding:1px 9px;background:var(--c2);font-size:11px;letter-spacing:.1em;vertical-align:1px}
 .ytl strong{font-size:16px;letter-spacing:.05em}
@@ -641,7 +641,7 @@ body{background-image:none}
 .ft:before{opacity:.45}
 .off-msg,.callout,.pcard,.off-paper{box-shadow:none}
 .msec .off-msg,.msec .off-paper,.msec .fac,.msec .stu{background:rgba(255,255,255,.5)}
-.hd.scrolled{background:rgba(245,245,245,.72)}
+.hd.scrolled{background:rgba(233,232,228,.72)}
 body:not([data-page=members]) .toc a{border-bottom-color:var(--ink)}
 
 /* コンセプト文：句読点のところで改行し、「す。」だけが残らないように */
@@ -698,10 +698,10 @@ body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px
 .hd{transition:transform .45s cubic-bezier(.2,.7,.2,1),padding .35s}
 .hd.hd-hide{transform:translateY(-130%)}
 .hd.scrolled{background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:14px 24px;pointer-events:none}
-.hd.scrolled .hd-logo{pointer-events:auto;padding:6px;border-radius:99px;background:rgba(246,243,236,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 4px 16px -8px rgba(17,17,17,.4)}
+.hd.scrolled .hd-logo{pointer-events:auto;padding:6px;border-radius:99px;background:rgba(233,232,228,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 4px 16px -8px rgba(17,17,17,.4)}
 .hd.scrolled .hd-logo img{width:32px;height:32px}
 .hd.scrolled .hd-logo span{display:none}
-.hd.scrolled .hd-burger{pointer-events:auto;display:block;width:46px;height:46px;border-radius:50%;background:rgba(246,243,236,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 4px 16px -8px rgba(17,17,17,.4)}
+.hd.scrolled .hd-burger{pointer-events:auto;display:block;width:46px;height:46px;border-radius:50%;background:rgba(233,232,228,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 4px 16px -8px rgba(17,17,17,.4)}
 .hd.scrolled .hd-burger i{left:13px;right:13px}
 .hd.scrolled .hd-burger i:nth-child(1){top:18px}
 .hd.scrolled .hd-burger i:nth-child(2){top:27px}
@@ -788,3 +788,93 @@ body[data-page=about] .hero .hero-en{font-size:clamp(44px,min(12.5vw,22vh),200px
 @media (min-width:901px){
   .flow{-webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 96px,#000 170px);mask-image:linear-gradient(to bottom,transparent 0,transparent 96px,#000 170px)}
 }
+
+/* 「和アートセラピー」の後ろに、和紙色のやわらかい光をしいて、文字を引き立たせる */
+.top-mark::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:min(96%,1500px);height:300%;transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(233,232,228,.92) 0,rgba(233,232,228,.78) 38%,rgba(233,232,228,.35) 66%,rgba(233,232,228,0) 100%)}
+.top-mark{text-shadow:0 0 18px rgba(233,232,228,.95),0 0 6px rgba(233,232,228,.9),0 0 36px rgba(233,232,228,.8)}
+@media (max-width:900px){
+  .top-mark::before{width:112%;height:420%;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(233,232,228,.95) 0,rgba(233,232,228,.85) 42%,rgba(233,232,228,.4) 70%,rgba(233,232,228,0) 100%)}
+}
+
+/* 背景：やや暗めの薄いグレーに、和紙の繊維のような、ごく薄いテクスチャ */
+body,body[data-page=top],body[data-page=news]{background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8 0.07' numOctaves='3' seed='7' result='n'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.45  0 0 0 0 0.42  0 0 0 0 0.37  0 0 0 0.55 -0.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29' opacity='.5'/%3E%3C/svg%3E");background-size:360px 360px}
+
+/* 「和アートセラピー」をさらに引き立てる：文字は真っ黒に、光は少し広く濃く、下にロゴの四季色のライン */
+.top-mark{color:#000;letter-spacing:.06em}
+.top-mark::before{background:radial-gradient(ellipse 52% 50% at 50% 50%,rgba(233,232,228,.97) 0,rgba(233,232,228,.84) 40%,rgba(233,232,228,.4) 68%,rgba(233,232,228,0) 100%)}
+
+/* ===== TOPの絵画が流れる部分だけ：薄暗い回廊（美術館）のような空間に、絵画と文字が浮かび上がる ===== */
+body[data-page=top] .top{background:
+  radial-gradient(ellipse 70% 46% at 50% -4%,rgba(255,246,225,.20),transparent 72%),
+  radial-gradient(ellipse 120% 70% at 50% 40%,#3b3935 0,#2a2927 58%,#1c1b1a 100%)}
+body[data-page=top] .top:after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;z-index:0;
+  background:linear-gradient(to top,rgba(10,10,9,.55),transparent)}
+body[data-page=top] .fl img{box-shadow:0 0 46px -6px rgba(255,244,220,.20),0 22px 46px -14px rgba(0,0,0,.85)}
+body[data-page=top] .fl figcaption{color:#a9a69e}
+body[data-page=top] .top-mark{color:#efece5;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+body[data-page=top] .top-mark::before{background:radial-gradient(ellipse 52% 50% at 50% 50%,rgba(20,19,18,.62) 0,rgba(20,19,18,.42) 45%,rgba(20,19,18,0) 100%)}
+body[data-page=top] .top-sub{background:rgba(20,19,18,.72);color:#efece5;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+body[data-page=top] .kinds{color:#bdbab2}
+body[data-page=top] .kinds li{background:rgba(20,19,18,.6)}
+body[data-page=top] .kinds b{color:#efece5}
+body[data-page=top] .hd:not(.scrolled) .hd-logo,body[data-page=top] .hd:not(.scrolled) .hd-nav a{color:#f1eee8}
+body[data-page=top] .hd:not(.scrolled) .hd-nav a.is-on{border-color:#f1eee8}
+body[data-page=top] .hd:not(.scrolled) .hd-burger i{background:#f1eee8}
+body[data-page=top] .totop{mix-blend-mode:difference;color:#fff}
+body[data-page=top] .fc{opacity:.75}
+
+/* ===== TOPの空間：もう一段あかるく、障子のような（格子と和紙の）やわらかい背景に ===== */
+body[data-page=top] .top{background:
+  radial-gradient(ellipse 62% 52% at 50% 46%,rgba(255,244,224,.34),transparent 78%),
+  repeating-linear-gradient(90deg,rgba(60,44,28,.13) 0 1px,transparent 1px 150px),repeating-linear-gradient(90deg,rgba(60,44,28,.05) 0 1px,transparent 1px 50px),
+  repeating-linear-gradient(0deg,rgba(60,44,28,.12) 0 1px,transparent 1px 200px),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9 0.08' numOctaves='3' seed='11'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.85  0 0 0 0.5 -0.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29' opacity='.35'/%3E%3C/svg%3E"),
+  radial-gradient(ellipse 120% 80% at 50% 38%,#b4a995 0,#9d9280 60%,#85796a 100%)}
+body[data-page=top] .top:after{background:linear-gradient(to top,rgba(50,40,30,.28),transparent)}
+
+/* 背景を和紙色に薄くしたので、文字・メニューは濃い色に切り替える */
+body[data-page=top] .top-mark{color:#1b1611;text-shadow:0 0 18px rgba(246,240,228,.55)}
+body[data-page=top] .top-mark::before{background:radial-gradient(ellipse 52% 50% at 50% 50%,rgba(238,230,214,.72) 0,rgba(238,230,214,.5) 45%,rgba(238,230,214,0) 100%)}
+body[data-page=top] .top-sub{background:rgba(242,236,224,.88);color:#1f1a14;box-shadow:0 0 0 1px rgba(60,44,28,.18)}
+body[data-page=top] .kinds{color:#3b3329}
+body[data-page=top] .kinds li{background:rgba(242,236,224,.78)}
+body[data-page=top] .kinds b{color:#16120d}
+body[data-page=top] .fl figcaption{color:#4a4136}
+body[data-page=top] .fl img{box-shadow:0 18px 40px -16px rgba(40,28,16,.55)}
+body[data-page=top] .hd:not(.scrolled) .hd-logo,body[data-page=top] .hd:not(.scrolled) .hd-nav a{color:#241e17}
+body[data-page=top] .hd:not(.scrolled) .hd-nav a.is-on{border-color:#241e17}
+body[data-page=top] .hd:not(.scrolled) .hd-burger i{background:#241e17}
+body[data-page=top] .totop{mix-blend-mode:normal;color:var(--ink)}
+
+/* ===== 高級障子（純楮100%）：白寄りの和紙に、ごく細い組子と、楮の長い繊維 ===== */
+body[data-page=top] .top{background:
+  radial-gradient(ellipse 64% 54% at 50% 46%,rgba(255,252,243,.75),transparent 78%),
+  repeating-linear-gradient(90deg,rgba(110,84,56,.20) 0 1px,transparent 1px 168px),
+  repeating-linear-gradient(90deg,rgba(110,84,56,.07) 0 1px,transparent 1px 56px),
+  repeating-linear-gradient(0deg,rgba(110,84,56,.18) 0 1px,transparent 1px 224px),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9 0.03' numOctaves='2' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.52  0 0 0 0 0.42  0 0 0 0 0.30  5 0 0 0 -2.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29' opacity='.15'/%3E%3C/svg%3E"),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.03 0.4' numOctaves='2' seed='9'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 0.99  0 0 0 0 0.95  5 0 0 0 -2.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29' opacity='.35'/%3E%3C/svg%3E"),
+  radial-gradient(ellipse 120% 80% at 50% 40%,#f6f1e6 0,#eee8da 62%,#e4ddcc 100%)}
+body[data-page=top] .top:after{background:linear-gradient(to top,rgba(120,100,76,.14),transparent)}
+body[data-page=top] .fl img{box-shadow:0 14px 34px -14px rgba(70,52,32,.42),0 0 0 1px rgba(110,84,56,.10)}
+body[data-page=top] .top-mark::before{background:radial-gradient(ellipse 52% 50% at 50% 50%,rgba(250,246,236,.75) 0,rgba(250,246,236,.5) 45%,rgba(250,246,236,0) 100%)}
+body[data-page=top] .top-sub{background:rgba(250,246,236,.92)}
+body[data-page=top] .kinds li{background:rgba(250,246,236,.85)}
+body[data-page=top] .fc{opacity:.9}
+
+/* ===== 雲竜紙（楮障子紙・雲竜模様入）をお手本に：白い長い繊維がふわりと漂う和紙＋ごく細い組子 ===== */
+body[data-page=top] .top{background:
+  radial-gradient(ellipse 64% 54% at 50% 46%,rgba(255,255,252,.32),transparent 78%),
+  repeating-linear-gradient(90deg,rgba(100,90,76,.15) 0 1px,transparent 1px 168px),
+  repeating-linear-gradient(0deg,rgba(100,90,76,.13) 0 1px,transparent 1px 224px),
+  url("assets/unryu.jpg?v=7") 0 0/1100px 1100px,
+  #d9d8d4}
+
+/* 「和アートセラピー」まわりの光：白と薄いグレーを混ぜた、淡いにじみ */
+body[data-page=top] .top-mark{text-shadow:0 0 22px rgba(255,255,255,.42),0 0 46px rgba(214,214,212,.36)}
+body[data-page=top] .top-mark::before{background:radial-gradient(ellipse 52% 50% at 50% 50%,rgba(255,255,255,.5) 0,rgba(236,236,234,.36) 40%,rgba(214,214,212,.16) 68%,rgba(214,214,212,0) 100%)}
+
+/* 「和アートセラピー」の下線（ロゴの四季色）を復活 */
+.top-mark::after{content:"";position:absolute;left:50%;bottom:-.2em;transform:translateX(-50%);width:min(30%,380px);height:4px;border-radius:4px;background:linear-gradient(90deg,#63b8a5,#e2c350,#ee8a56,#e98cb5)}
+@media (max-width:900px){.top-mark::after{width:44%;height:3px;bottom:-.24em}}
